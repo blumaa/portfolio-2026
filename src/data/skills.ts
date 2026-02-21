@@ -72,7 +72,6 @@ export const skills: Skill[] = [
 
   // Project Management
   { name: 'Linear', category: 'projectMgmt' },
-  { name: 'Jira', category: 'projectMgmt' },
   { name: 'A/B Testing', category: 'projectMgmt' },
   { name: 'Split Testing', category: 'projectMgmt' },
 
