@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { TypingText } from './TypingText'
 
@@ -16,7 +16,9 @@ describe('TypingText', () => {
     render(<TypingText phrases={phrases} />)
 
     // Should start typing the first phrase
-    vi.advanceTimersByTime(100) // Advance past first character typing
+    act(() => {
+      vi.advanceTimersByTime(100) // Advance past first character typing
+    })
     expect(screen.getByTestId('typing-text')).toBeInTheDocument()
   })
 
