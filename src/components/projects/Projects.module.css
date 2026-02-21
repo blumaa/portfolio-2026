@@ -1,0 +1,51 @@
+.projects {
+  padding: var(--space-16) 0;
+  background-color: var(--color-background-alt);
+}
+
+@media (min-width: 768px) {
+  .projects {
+    padding: var(--space-24) 0;
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-12);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-4xl);
+    text-align: left;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Featured project spans full width on tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}

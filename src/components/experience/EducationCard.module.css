@@ -1,0 +1,72 @@
+.card {
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+.institution {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.degree {
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.location {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.highlights li {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}

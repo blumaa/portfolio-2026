@@ -1,0 +1,68 @@
+.experience {
+  padding: var(--space-16) 0;
+}
+
+@media (min-width: 768px) {
+  .experience {
+    padding: var(--space-24) 0;
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-12);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-4xl);
+    text-align: left;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-16);
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.workSection {
+  min-width: 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.educationSection {
+  min-width: 0;
+}
+
+.educationGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

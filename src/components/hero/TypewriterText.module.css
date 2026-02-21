@@ -1,0 +1,60 @@
+.container {
+  display: inline-block;
+}
+
+.text {
+  font-family: 'American Typewriter', 'Courier New', Courier, monospace;
+  font-size: var(--text-xl);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+  transition: transform 0.05s ease;
+}
+
+@media (min-width: 768px) {
+  .text {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .text {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* Key strike effect - slight bounce */
+.strike {
+  transform: translateY(1px);
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--color-text-primary);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .strike {
+    transform: none;
+  }
+}

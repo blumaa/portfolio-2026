@@ -1,0 +1,66 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #f19c77;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-right: var(--space-2);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+.text {
+  color: #f19c77;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+.cursor {
+  color: #f19c77;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  animation: blink 1s step-end infinite;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+@media (min-width: 768px) {
+  .prompt,
+  .text,
+  .cursor {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .prompt,
+  .text,
+  .cursor {
+    font-size: var(--text-4xl);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+}

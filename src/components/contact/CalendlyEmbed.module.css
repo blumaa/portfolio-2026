@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.widget {
+  min-width: 320px;
+  height: clamp(350px, 50vh, 500px);
+}
