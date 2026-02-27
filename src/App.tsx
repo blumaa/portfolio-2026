@@ -5,7 +5,6 @@ import { Experience } from './components/experience'
 import { Projects } from './components/projects'
 import { Contact } from './components/contact'
 import { ThemeProvider } from './context/ThemeContext'
-import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <Analytics />
     </ThemeProvider>
   )
 }
