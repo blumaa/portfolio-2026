@@ -7,6 +7,7 @@ import { Projects } from './components/projects'
 import { Contact } from './components/contact'
 import { ThemeProvider } from './context/ThemeContext'
 import { TelevisionPage } from './pages/TelevisionPage'
+import { NotFound } from './pages/NotFound'
 
 function HomePage() {
   return (
@@ -29,6 +30,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/tv" element={<TelevisionPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
