@@ -19,7 +19,7 @@ export const projects: Project[] = [
     name: 'Mond Design System',
     tagline: 'A React component library with atomic design',
     description:
-      '35+ accessible, themeable React components built with TypeScript and Vanilla Extract. Implements atomic design principles for maximum reusability and consistency.',
+      '35+ accessible, themeable React components built with TypeScript and Design Tokens. Implements atomic design principles for maximum reusability and consistency.',
     featured: true,
     techStack: ['React', 'TypeScript', 'Storybook', 'Vanilla Extract'],
     previewUrl: 'https://mond-design-system-component-lib.vercel.app/',
