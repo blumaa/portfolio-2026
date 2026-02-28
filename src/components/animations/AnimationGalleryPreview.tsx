@@ -2,11 +2,33 @@ import { useState, type ComponentType } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Lighthouse } from './Lighthouse'
 import { RustlingGrass } from './RustlingGrass'
+import { AnimatedMoon } from './AnimatedMoon'
+import { AnimatedEyeball } from './AnimatedEyeball'
+import { AnimatedEyeballWatching } from './AnimatedEyeballWatching'
+import { NoirCarChase } from './NoirCarChase'
+import { AlienMoon } from './AlienMoon'
+import { AnimatedLamp } from './AnimatedLamp'
+import { Bird } from './Bird'
+import { AnimatedLoadingAirplane } from './AnimatedLoadingAirplane'
+import { AnimatedOctoDude } from './AnimatedOctoDude'
+import { NuclearPhysics } from './NuclearPhysics'
+import { Bus } from './Bus'
 import styles from './AnimationGalleryPreview.module.css'
 
 const ANIMATIONS: { component: ComponentType; name: string }[] = [
   { component: Lighthouse, name: 'Lighthouse' },
   { component: RustlingGrass, name: 'Rustling Grass' },
+  { component: AnimatedMoon, name: 'Animated Moon' },
+  { component: AnimatedEyeball, name: 'Animated Eyeball' },
+  { component: AnimatedEyeballWatching, name: 'Watching Eyes' },
+  { component: NoirCarChase, name: 'Noir Car Chase' },
+  { component: AlienMoon, name: 'Alien Moon' },
+  { component: AnimatedLamp, name: 'Animated Lamp' },
+  { component: Bird, name: 'Bird' },
+  { component: AnimatedLoadingAirplane, name: 'Loading Airplane' },
+  { component: AnimatedOctoDude, name: 'Octo Dude' },
+  { component: NuclearPhysics, name: 'Nuclear Physics' },
+  { component: Bus, name: 'Bus' },
 ]
 
 function AnimationGalleryPreview() {

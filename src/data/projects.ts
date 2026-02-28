@@ -39,8 +39,7 @@ export const projects: Project[] = [
       { name: 'musiclues', url: 'https://musiclues.space' },
       { name: 'filmclues', url: 'https://filmclues.space' },
       { name: 'litclues', url: 'https://litclues.space' },
-    ],
-    githubUrl: 'https://github.com/blumaa/xclues',
+    ]
   },
   {
     id: 'animation-gallery',
@@ -49,8 +48,7 @@ export const projects: Project[] = [
     description:
       'A collection of interactive SVG animations created with GSAP. Each animation responds to theme changes and demonstrates advanced animation techniques.',
     techStack: ['React', 'GSAP', 'SVG', 'TypeScript'],
-    previewComponent: 'animation-gallery',
-    githubUrl: 'https://github.com/blumaa/portfolio-2025',
+    previewComponent: 'animation-gallery'
   },
   {
     id: 'television',
@@ -59,8 +57,7 @@ export const projects: Project[] = [
     description:
       'A nostalgic retro television component with power button, channel switching, and static effects. Click the power button to turn it on, then change channels to view different animations.',
     techStack: ['React', 'Framer Motion', 'SVG', 'TypeScript'],
-    previewComponent: 'television',
-    githubUrl: 'https://github.com/blumaa/portfolio-2025',
+    previewComponent: 'television'
   },
 ]
 

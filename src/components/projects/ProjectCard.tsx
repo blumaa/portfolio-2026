@@ -100,6 +100,11 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         <div className={styles.links}>
+          {previewComponent === 'television' && (
+            <Button href="/tv" target="_blank" variant="primary" size="sm">
+              Open TV
+            </Button>
+          )}
           {liveUrls && liveUrls.map((link) => (
             <Button key={link.name} href={link.url} variant="primary" size="sm">
               {link.name}

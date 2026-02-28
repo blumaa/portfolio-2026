@@ -9,6 +9,7 @@ export interface ButtonProps {
   variant?: ButtonVariant
   size?: ButtonSize
   href?: string
+  target?: '_blank' | '_self' | '_parent' | '_top'
   download?: boolean | string
   children?: ReactNode
   className?: string
@@ -19,10 +20,11 @@ export interface ButtonProps {
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', href, download, children, className = '', onClick, type = 'button', disabled, 'aria-label': ariaLabel }, ref) => {
+  ({ variant = 'primary', size = 'md', href, target, download, children, className = '', onClick, type = 'button', disabled, 'aria-label': ariaLabel }, ref) => {
     const classes = `${styles.button} ${styles[variant]} ${styles[size]} ${className}`.trim()
 
     if (href) {
+      const resolvedTarget = target || (href.startsWith('http') ? '_blank' : undefined)
       return (
         <motion.a
           href={href}
@@ -30,8 +32,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className={classes}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          target={href.startsWith('http') ? '_blank' : undefined}
-          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          target={resolvedTarget}
+          rel={resolvedTarget === '_blank' ? 'noopener noreferrer' : undefined}
           aria-label={ariaLabel}
         >
           {children}
