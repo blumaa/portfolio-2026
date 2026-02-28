@@ -26,6 +26,7 @@
 
 .primary:hover {
   background-color: var(--color-accent-hover);
+  color: var(--color-background-alt);
 }
 
 .secondary {
