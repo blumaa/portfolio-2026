@@ -12,7 +12,7 @@ export interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index }: ProjectCardProps) {
-  const { name, tagline, description, techStack, previewUrl, previewComponent, liveUrls, githubUrl, npmUrl, storybookUrl, featured } =
+  const { name, tagline, description, techStack, previewUrl, screenshotUrl, previewComponent, liveUrls, githubUrl, npmUrl, storybookUrl, featured } =
     project
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -48,6 +48,25 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           </div>
           <div className={styles.browserContent}>{renderPreview()}</div>
+        </div>
+      )}
+
+      {/* Screenshot Preview */}
+      {screenshotUrl && !previewComponent && (
+        <div className={styles.browserFrame}>
+          <div className={styles.browserHeader}>
+            <div className={styles.browserDots}>
+              <span className={styles.dot} />
+              <span className={styles.dot} />
+              <span className={styles.dot} />
+            </div>
+            <div className={styles.browserUrl}>
+              <span>{liveUrls?.[0]?.url.replace('https://', '') ?? name}</span>
+            </div>
+          </div>
+          <div className={styles.browserContent}>
+            <img src={screenshotUrl} alt={`${name} preview`} className={styles.screenshot} />
+          </div>
         </div>
       )}
 

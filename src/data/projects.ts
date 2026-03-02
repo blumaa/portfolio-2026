@@ -6,6 +6,7 @@ export interface Project {
   featured?: boolean
   techStack: string[]
   previewUrl?: string
+  screenshotUrl?: string
   previewComponent?: 'animation-gallery' | 'television'
   liveUrls?: { name: string; url: string }[]
   githubUrl?: string
@@ -40,6 +41,17 @@ export const projects: Project[] = [
       { name: 'filmclues', url: 'https://filmclues.space' },
       { name: 'litclues', url: 'https://litclues.space' },
     ]
+  },
+  {
+    id: 'bird-poo',
+    name: 'Bird Poo',
+    tagline: 'A browser-based arcade game with a leaderboard',
+    description:
+      'Dodge falling bird poo while shooting back at the birds. Features animated sprites built with SVG and GSAP, a global leaderboard via Supabase, and PWA support for mobile play.',
+    techStack: ['React', 'TypeScript', 'GSAP', 'SVG', 'Supabase', 'Vite'],
+    screenshotUrl: '/bird-poo-preview.png',
+    liveUrls: [{ name: 'Play', url: 'https://bird-poo.vercel.app/' }],
+    githubUrl: 'https://github.com/blumaa/bird-poo',
   },
   {
     id: 'animation-gallery',
