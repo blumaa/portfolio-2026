@@ -14,6 +14,7 @@ import { AnimatedLoadingAirplane } from './AnimatedLoadingAirplane'
 import { AnimatedOctoDude } from './AnimatedOctoDude'
 import { NuclearPhysics } from './NuclearPhysics'
 import { Bus } from './Bus'
+import { PadelPointBerlin } from './PadelPointBerlin'
 import styles from './TelevisionPreview.module.css'
 
 const ANIMATIONS: ComponentType[] = [
@@ -30,6 +31,7 @@ const ANIMATIONS: ComponentType[] = [
   AnimatedOctoDude,
   NuclearPhysics,
   Bus,
+  PadelPointBerlin,
 ]
 
 function TelevisionPreview() {

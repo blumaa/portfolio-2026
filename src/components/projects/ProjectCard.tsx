@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '../ui/Badge'
 import { Button } from '../ui/Button'
-import { AnimationGalleryPreview, TelevisionPreview } from '../animations'
+import { AnimationGalleryPreview, TelevisionPreview, PadelPointBerlinPreview } from '../animations'
 import type { Project } from '../../data/projects'
 import styles from './ProjectCard.module.css'
 
@@ -22,6 +22,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
     }
     if (previewComponent === 'television') {
       return <TelevisionPreview />
+    }
+    if (previewComponent === 'padel-point-berlin') {
+      return <PadelPointBerlinPreview />
     }
     return null
   }
@@ -47,7 +50,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               <span>{name}</span>
             </div>
           </div>
-          <div className={styles.browserContent}>{renderPreview()}</div>
+          <div className={`${styles.browserContent} ${previewComponent === 'padel-point-berlin' ? styles.browserContentAuto : ''}`}>{renderPreview()}</div>
         </div>
       )}
 
@@ -64,7 +67,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               <span>{liveUrls?.[0]?.url.replace('https://', '') ?? name}</span>
             </div>
           </div>
-          <div className={styles.browserContent}>
+          <div className={`${styles.browserContent} ${styles.browserContentAuto}`}>
             <img src={screenshotUrl} alt={`${name} preview`} className={styles.screenshot} />
           </div>
         </div>

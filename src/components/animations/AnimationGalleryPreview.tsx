@@ -13,6 +13,7 @@ import { AnimatedLoadingAirplane } from './AnimatedLoadingAirplane'
 import { AnimatedOctoDude } from './AnimatedOctoDude'
 import { NuclearPhysics } from './NuclearPhysics'
 import { Bus } from './Bus'
+import { PadelPointBerlin } from './PadelPointBerlin'
 import styles from './AnimationGalleryPreview.module.css'
 
 const ANIMATIONS: { component: ComponentType; name: string }[] = [
@@ -29,6 +30,7 @@ const ANIMATIONS: { component: ComponentType; name: string }[] = [
   { component: AnimatedOctoDude, name: 'Octo Dude' },
   { component: NuclearPhysics, name: 'Nuclear Physics' },
   { component: Bus, name: 'Bus' },
+  { component: PadelPointBerlin, name: 'Padel Point Berlin' },
 ]
 
 function AnimationGalleryPreview() {

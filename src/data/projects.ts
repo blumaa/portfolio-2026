@@ -7,7 +7,7 @@ export interface Project {
   techStack: string[]
   previewUrl?: string
   screenshotUrl?: string
-  previewComponent?: 'animation-gallery' | 'television'
+  previewComponent?: 'animation-gallery' | 'television' | 'padel-point-berlin'
   liveUrls?: { name: string; url: string }[]
   githubUrl?: string
   npmUrl?: string
@@ -15,6 +15,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'padel-point-berlin',
+    name: 'Padel Point Berlin',
+    tagline: 'A padel match finder and community tool for Berlin',
+    description:
+      'Aggregates padel court bookings across Berlin venues, with filters for level, time, and category.',
+    techStack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+    previewComponent: 'padel-point-berlin',
+    liveUrls: [{ name: 'view site', url: 'https://padel-point-berlin.vercel.app/' }],
+    githubUrl: 'https://github.com/blumaa/padel-point-berlin',
+  },
   {
     id: 'mond',
     name: 'Mond Design System',
