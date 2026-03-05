@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './AnimationGalleryPreview.module.css'
 
@@ -11,6 +11,19 @@ const SCREENSHOTS = [
 
 function PadelPointBerlinPreview() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    let count = 0
+    SCREENSHOTS.forEach(({ src }) => {
+      const img = new Image()
+      img.onload = () => {
+        count++
+        if (count === SCREENSHOTS.length) setLoaded(true)
+      }
+      img.src = src
+    })
+  }, [])
 
   const handlePrev = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -22,6 +35,16 @@ function PadelPointBerlinPreview() {
     e.preventDefault()
     e.stopPropagation()
     setCurrentIndex((prev) => (prev + 1) % SCREENSHOTS.length)
+  }
+
+  if (!loaded) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.animationWrapper} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
+          <div style={{ width: 32, height: 32, border: '3px solid var(--color-border)', borderTopColor: 'var(--color-accent)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+        </div>
+      </div>
+    )
   }
 
   return (
