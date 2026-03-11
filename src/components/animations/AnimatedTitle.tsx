@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import styles from './AnimatedTitle.module.css'
 
 const sentence = {
   hidden: { opacity: 0 },
@@ -24,12 +25,12 @@ export function AnimatedTitle() {
       variants={sentence}
       initial="hidden"
       animate="visible"
-      style={{ fontSize: '1.5rem', whiteSpace: 'nowrap' }}
+      className={styles.title}
     >
       {title.split('').map((char, index) => {
         return (
-          <motion.span key={char + index} variants={letter} style={{ display: 'inline-block' }}>
-            <span style={{ fontSize: 'xl', color: 'var(--color-text-primary)' }}>
+          <motion.span key={char + index} variants={letter} className={styles.letter}>
+            <span className={styles.letterText}>
               {char === ' ' ? '\u00A0' : char}
             </span>
           </motion.span>

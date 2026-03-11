@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import styles from './AnimatedLoadingAirplane.module.css'
 
 gsap.registerPlugin(useGSAP)
 
@@ -86,7 +87,7 @@ export function AnimatedLoadingAirplane() {
   return (
     <div
       ref={containerRef}
-      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}
+      className={styles.container}
     >
       <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 1024 1024">
         <path

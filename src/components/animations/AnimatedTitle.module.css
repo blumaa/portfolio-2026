@@ -1,0 +1,12 @@
+.title {
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.letter {
+  display: inline-block;
+}
+
+.letterText {
+  color: var(--color-text-primary);
+}

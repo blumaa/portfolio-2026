@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import styles from './AnimatedLamp.module.css'
 
 const variants = {
   on: { opacity: 1, originY: 100 },
@@ -23,7 +24,7 @@ export function AnimatedLamp() {
       initial={{ backgroundColor: '#1a1a1a' }}
       animate={lampOn ? 'on' : 'off'}
       variants={backgroundVariants}
-      style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      className={styles.container}
       transition={{
         type: 'spring',
         duration: 1.5,
@@ -91,15 +92,8 @@ export function AnimatedLamp() {
 
         <g id="Layer_1-2">
           <path
-            className="st0"
+            className={styles.lampArm}
             d="M180,40L180,40c27.6,0,50,22.4,50,50v200"
-            style={{
-              fill: 'none',
-              stroke: '#2d3642',
-              strokeWidth: '10',
-              strokeLinecap: 'round',
-              strokeLinejoin: 'round',
-            }}
           />
           <motion.path
             initial={{ opacity: 0 }}
@@ -115,26 +109,12 @@ export function AnimatedLamp() {
             d="M10 300 110 80 170 80 160 300z"
           />
           <path
-            className="st0"
+            className={styles.lampHead}
             d="M90,80l53.9-62.8c3.9-4.6,9.6-7.2,15.6-7.2l0,0c11.3,0,20.6,9.2,20.6,20.5c0,0,0,0,0,0V80H90z"
-            style={{
-              fill: '#2d3642',
-              stroke: '#2d3642',
-              strokeWidth: '10',
-              strokeLinecap: 'round',
-              strokeLinejoin: 'round',
-            }}
           />
           <path
-            className="st0"
+            className={styles.lampBase}
             d="M280 290 180 290"
-            style={{
-              fill: 'none',
-              stroke: '#2d3642',
-              strokeWidth: '20',
-              strokeLinecap: 'round',
-              strokeLinejoin: 'round',
-            }}
           />
           <g className="hover:cursor-pointer">
             <motion.path

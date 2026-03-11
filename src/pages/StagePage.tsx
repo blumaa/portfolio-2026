@@ -1,19 +1,12 @@
 import { PadelPointBerlin } from '../components/animations/PadelPointBerlin'
 import { ThemeProvider } from '../context/ThemeContext'
+import styles from './StagePage.module.css'
 
 function StagePage() {
   return (
     <ThemeProvider>
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '2rem',
-        }}
-      >
-        <div style={{ maxWidth: '500px', width: '100%' }}>
+      <div className={styles.page}>
+        <div className={styles.container}>
           <PadelPointBerlin />
         </div>
       </div>

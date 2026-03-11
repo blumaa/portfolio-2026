@@ -7,21 +7,22 @@ export interface Project {
   techStack: string[]
   previewUrl?: string
   screenshotUrl?: string
-  previewComponent?: 'animation-gallery' | 'television' | 'padel-point-berlin'
+  previewComponent?: 'animation-gallery' | 'television' | 'padel-point-berlin' | 'bird-poo' | 'xclues' | 'mond'
   liveUrls?: { name: string; url: string }[]
   githubUrl?: string
   npmUrl?: string
   storybookUrl?: string
+  appStoreUrl?: string
 }
 
 export const projects: Project[] = [
   {
     id: 'padel-point-berlin',
     name: 'Padel Point Berlin',
-    tagline: 'A padel match finder and community tool for Berlin',
+    tagline: 'Padel match aggregator with dual data ingestion',
     description:
-      'Aggregates padel court bookings across Berlin venues, with filters for level, time, and category.',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+      'A PWA and web app that aggregates open padel matches across Berlin. Features D3/Recharts analytics dashboards and cron-based polling with GitHub Actions.',
+    techStack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'D3', 'Recharts', 'PWA', 'GitHub Actions'],
     previewComponent: 'padel-point-berlin',
     liveUrls: [{ name: 'view site', url: 'https://padel-point-berlin.vercel.app/' }],
     githubUrl: 'https://github.com/blumaa/padel-point-berlin',
@@ -31,22 +32,23 @@ export const projects: Project[] = [
     name: 'Mond Design System',
     tagline: 'A React component library with atomic design',
     description:
-      '35+ accessible, themeable React components built with TypeScript and Design Tokens. Implements atomic design principles for maximum reusability and consistency.',
-    featured: true,
-    techStack: ['React', 'TypeScript', 'Storybook', 'Vanilla Extract'],
-    previewUrl: 'https://mond-design-system-component-lib.vercel.app/',
+      'A monorepo housing 35+ accessible, themeable React components built with TypeScript and Design Tokens. Implements atomic design principles for maximum reusability and consistency.',
+    techStack: ['React', 'TypeScript', 'Next.js', 'Storybook', 'Turbopack', 'Design Tokens'],
+    previewComponent: 'mond',
     githubUrl: 'https://github.com/blumaa/mond-design-system',
     npmUrl: 'https://www.npmjs.com/package/@mond-design-system/theme',
     storybookUrl: 'https://mond-design-system-component-lib.vercel.app/',
   },
   {
     id: 'xclues',
-    name: 'xclues games',
-    tagline: 'Daily puzzle games for music, film, and literature',
+    name: 'xClues games',
+    tagline: 'Daily puzzle platform with iOS deployment',
     description:
-      'A family of daily puzzle games where players guess songs, movies, and books from progressive clues. Features streak tracking, social sharing, and clean UI.',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Vercel'],
-    previewUrl: 'https://musiclues.space',
+      'A connections-style puzzle game engine powering three domains (music, film, literature) from a single codebase. Features Zustand state management, TanStack Query caching, build-time SEO generation per domain, and the Mond Design System. Deployed as a PWA and native iOS app via Capacitor.',
+    featured: true,
+    techStack: ['React', 'TypeScript', 'Zustand', 'TanStack Query', 'Supabase', 'Capacitor', 'Mond DS', 'Vite'],
+    previewComponent: 'xclues',
+    appStoreUrl: '#',
     liveUrls: [
       { name: 'musiclues', url: 'https://musiclues.space' },
       { name: 'filmclues', url: 'https://filmclues.space' },
@@ -56,11 +58,12 @@ export const projects: Project[] = [
   {
     id: 'bird-poo',
     name: 'Bird Poo',
-    tagline: 'A browser-based arcade game with a leaderboard',
+    tagline: 'A cross-platform arcade game with SVG animation engine',
     description:
-      'Dodge falling bird poo while shooting back at the birds. Features animated sprites built with SVG and GSAP, a global leaderboard via Supabase, and PWA support for mobile play.',
-    techStack: ['React', 'TypeScript', 'GSAP', 'SVG', 'Supabase', 'Vite'],
-    screenshotUrl: '/bird-poo-preview.png',
+      'An arcade game built on a custom SVG rendering engine with GSAP-powered character animations, game state machine via useReducer, and a real-time leaderboard on Supabase. Deployed as a PWA and native iOS app via Capacitor.',
+    techStack: ['React', 'TypeScript', 'GSAP', 'SVG', 'Supabase', 'Capacitor', 'PWA', 'Vite'],
+    previewComponent: 'bird-poo',
+    appStoreUrl: '#',
     liveUrls: [{ name: 'Play', url: 'https://bird-poo.vercel.app/' }],
     githubUrl: 'https://github.com/blumaa/bird-poo',
   },

@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
+import styles from './AnimatedOctoDude.module.css'
 
 export function AnimatedOctoDude() {
   return (
+    <div className={styles.container}>
     <svg
       viewBox="0 0 160 160"
       xmlns="http://www.w3.org/2000/svg"
+      width="100%"
       height="100%"
-      style={{ overflow: 'visible' }}
     >
       {/* Bubbles behind octopus */}
       <motion.circle
@@ -276,5 +278,6 @@ export function AnimatedOctoDude() {
         }}
       />
     </svg>
+    </div>
   )
 }

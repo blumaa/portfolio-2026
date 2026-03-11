@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, Back, Elastic } from 'gsap'
+import styles from './AlienMoon.module.css'
 
 function random(min: number, max?: number): () => number {
   if (max == null) {
@@ -67,7 +68,7 @@ export function AlienMoon() {
   }, [])
 
   return (
-    <div style={{ flex: 1, display: 'flex', justifyContent: 'center', height: '100%' }}>
+    <div className={styles.container}>
       <svg
         id="Layer_1"
         data-name="Layer 1"

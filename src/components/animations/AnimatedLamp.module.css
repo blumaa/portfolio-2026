@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lampArm {
+  fill: none;
+  stroke: #2d3642;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lampHead {
+  fill: #2d3642;
+  stroke: #2d3642;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lampBase {
+  fill: none;
+  stroke: #2d3642;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
