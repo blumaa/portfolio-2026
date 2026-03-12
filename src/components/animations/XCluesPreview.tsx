@@ -1,10 +1,10 @@
 import { ScreenshotCarousel } from './ScreenshotCarousel'
 
 const SCREENSHOTS = [
-  { src: '/xclues-films-light.png', name: 'Films Light' },
-  { src: '/xclues-music-light.png', name: 'Music Light' },
-  { src: '/xclues-films-dark.png', name: 'Films Dark' },
-  { src: '/xclues-lit-light.png', name: 'Lit Light' },
+  { src: '/xclues-films-dark.png', name: 'filmclues.space' },
+  { src: '/xclues-films-light.png', name: 'filmclues.space' },
+  { src: '/xclues-music-light.png', name: 'musiclues.space' },
+  { src: '/xclues-lit-light.png', name: 'litclues.space' },
 ]
 
 function XCluesPreview() {
