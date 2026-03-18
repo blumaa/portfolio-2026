@@ -6,6 +6,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
 }
 
 .card:hover {
@@ -13,83 +14,110 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* Featured card */
 .featured {
   border-color: var(--color-accent);
 }
 
-/* Browser Frame Preview */
-.browserFrame {
-  background-color: var(--color-background-alt);
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-.browserHeader {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-3);
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-.browserDots {
-  display: flex;
-  gap: var(--space-1);
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: var(--color-border);
-}
-
-.dot:first-child {
-  background-color: #ff5f57;
-}
-
-.dot:nth-child(2) {
-  background-color: #ffbd2e;
-}
-
-.dot:nth-child(3) {
-  background-color: #28ca41;
-}
-
-.browserUrl {
-  flex: 1;
-  padding: var(--space-1) var(--space-3);
-  background-color: var(--color-background-alt);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.browserContent {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  overflow: hidden;
-}
-
-.iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  transform: scale(0.6);
-  transform-origin: top left;
-  width: 166.67%;
-  height: 166.67%;
+/* Featured: accent glow behind card */
+.featured::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: var(--radius-lg);
+  background: var(--color-accent);
+  opacity: 0.04;
+  filter: blur(40px);
+  z-index: -2;
   pointer-events: none;
 }
 
-.screenshot {
+@media (min-width: 768px) {
+  .featured {
+    flex-direction: row;
+  }
+
+  .featured .previewFrame {
+    flex: 3;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border-light);
+  }
+
+  .featured .content {
+    flex: 2;
+  }
+
+  .featured .title {
+    font-size: var(--text-3xl);
+  }
+
+  .featured .tagline {
+    font-size: var(--text-base);
+  }
+}
+
+/* Preview frame area */
+.previewFrame {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Preview image */
+.previewImage {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
   display: block;
+}
+
+/* Desktop hover: subtle scale on preview image */
+@media (hover: hover) {
+  .previewFrame:hover .previewImage {
+    transform: scale(1.02);
+    transition: transform var(--transition-base);
+  }
+}
+
+/* CRT overlay (scanlines + vignette) */
+.crtOverlay {
+  position: relative;
+}
+
+.crtOverlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+.crtOverlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crtOverlay::before,
+  .crtOverlay::after {
+    display: none;
+  }
 }
 
 .loader {
@@ -99,21 +127,6 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-background-alt);
-}
-
-.spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid var(--color-border);
-  border-top-color: var(--color-accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* Content */
@@ -164,6 +177,10 @@
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .techStack {

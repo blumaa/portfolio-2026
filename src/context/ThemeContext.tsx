@@ -13,7 +13,6 @@ function ThemeProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<ThemeMode>('light')
 
   useEffect(() => {
-    // Check for saved preference or system preference
     const savedTheme = localStorage.getItem('theme') as ThemeMode | null
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
@@ -21,20 +20,6 @@ function ThemeProvider({ children }: { children: ReactNode }) {
       setMode('dark')
       document.documentElement.setAttribute('data-theme', 'dark')
     }
-
-    // Listen for theme changes from ThemeToggle
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-          const newTheme = document.documentElement.getAttribute('data-theme') as ThemeMode
-          setMode(newTheme || 'light')
-        }
-      })
-    })
-
-    observer.observe(document.documentElement, { attributes: true })
-
-    return () => observer.disconnect()
   }, [])
 
   const toggleTheme = () => {

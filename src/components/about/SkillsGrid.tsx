@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Badge } from '../ui/Badge'
-import { skills, skillCategories, type SkillCategory } from '../../data/skills'
+import { skillCategories, getSkillsByCategory, type SkillCategory } from '../../data/skills'
 import styles from './SkillsGrid.module.css'
 
 const categoryOrder: SkillCategory[] = [
@@ -39,9 +39,6 @@ const itemVariants = {
 }
 
 function SkillsGrid() {
-  const getSkillsByCategory = (category: SkillCategory) =>
-    skills.filter((skill) => skill.category === category)
-
   return (
     <motion.div
       className={styles.grid}

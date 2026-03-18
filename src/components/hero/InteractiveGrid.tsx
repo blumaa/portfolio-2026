@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback } from 'react'
+import { parseAccentColor } from '../../lib/css'
 import styles from './InteractiveGrid.module.css'
 
 export interface InteractiveGridProps {
@@ -97,15 +98,7 @@ function InteractiveGrid({
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    // Get CSS custom property for accent color
-    const accentColor = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-accent')
-      .trim() || '#4a235a'
-
-    // Parse the hex color
-    const r = parseInt(accentColor.slice(1, 3), 16)
-    const g = parseInt(accentColor.slice(3, 5), 16)
-    const b = parseInt(accentColor.slice(5, 7), 16)
+    const { r, g, b } = parseAccentColor()
 
     dotsRef.current.forEach((dot) => {
       // Mouse hover effect (desktop)

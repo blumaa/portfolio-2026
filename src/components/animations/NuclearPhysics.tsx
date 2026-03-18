@@ -1,8 +1,5 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
-
-gsap.registerPlugin(MotionPathPlugin)
+import { gsap } from '../../lib/gsap'
 
 export function NuclearPhysics() {
   const svgRef = useRef<HTMLDivElement>(null)

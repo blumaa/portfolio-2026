@@ -1,3 +1,4 @@
+import { NAV_LINKS } from '../../data/navigation'
 import styles from './Footer.module.css'
 
 function Footer() {
@@ -15,11 +16,9 @@ function Footer() {
 
           <div className={styles.right}>
             <nav className={styles.footerNav}>
-              <a href="#hero">Home</a>
-              <a href="#about">About</a>
-              <a href="#experience">Experience</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
+              {NAV_LINKS.map((link) => (
+                <a key={link.href} href={link.href}>{link.label}</a>
+              ))}
             </nav>
           </div>
         </div>

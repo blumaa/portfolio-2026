@@ -1,9 +1,6 @@
 import { useRef } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
+import { gsap, useGSAP } from '../../lib/gsap'
 import { useThemeContext } from '../../context/ThemeContext'
-
-gsap.registerPlugin(useGSAP)
 
 function RustlingGrass() {
   const container = useRef<SVGSVGElement>(null)

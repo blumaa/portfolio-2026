@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from '../ui/ThemeToggle'
+import { NAV_LINKS } from '../../data/navigation'
 import styles from './Navigation.module.css'
 
-const navLinks = [
-  { href: '#hero', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
+const navLinks = NAV_LINKS
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)

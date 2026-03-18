@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ExperienceCard } from './ExperienceCard'
 import { EducationCard } from './EducationCard'
 import { experiences, education } from '../../data/experience'
+import { scrollReveal } from '../../lib/motion'
 import styles from './Experience.module.css'
 
 function Experience() {
@@ -10,10 +11,7 @@ function Experience() {
       <div className="container">
         <motion.h2
           className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          {...scrollReveal}
         >
           Experience
         </motion.h2>

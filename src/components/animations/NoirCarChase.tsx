@@ -1,9 +1,5 @@
 import { useRef } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
-
-gsap.registerPlugin(useGSAP, MotionPathPlugin)
+import { gsap, useGSAP } from '../../lib/gsap'
 
 export function NoirCarChase() {
   const containerRef = useRef<SVGSVGElement>(null)

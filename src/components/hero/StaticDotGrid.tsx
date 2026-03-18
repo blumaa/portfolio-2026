@@ -1,4 +1,6 @@
 import { useRef, useEffect, useCallback } from 'react'
+import { useThemeContext } from '../../context/ThemeContext'
+import { parseAccentColor } from '../../lib/css'
 import styles from './InteractiveGrid.module.css'
 
 export interface StaticDotGridProps {
@@ -13,6 +15,7 @@ function StaticDotGrid({
   className = '',
 }: StaticDotGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { mode } = useThemeContext()
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current
@@ -28,15 +31,7 @@ function StaticDotGrid({
     const cols = Math.ceil(rect.width / dotSpacing) + 1
     const rows = Math.ceil(rect.height / dotSpacing) + 1
 
-    // Get CSS custom property for accent color
-    const accentColor = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-accent')
-      .trim() || '#4a235a'
-
-    // Parse the hex color
-    const r = parseInt(accentColor.slice(1, 3), 16)
-    const g = parseInt(accentColor.slice(3, 5), 16)
-    const b = parseInt(accentColor.slice(5, 7), 16)
+    const { r, g, b } = parseAccentColor()
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -53,22 +48,8 @@ function StaticDotGrid({
   useEffect(() => {
     draw()
     window.addEventListener('resize', draw)
-
-    // Watch for theme changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-          draw()
-        }
-      })
-    })
-    observer.observe(document.documentElement, { attributes: true })
-
-    return () => {
-      window.removeEventListener('resize', draw)
-      observer.disconnect()
-    }
-  }, [draw])
+    return () => window.removeEventListener('resize', draw)
+  }, [draw, mode])
 
   return (
     <canvas

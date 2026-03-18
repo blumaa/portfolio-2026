@@ -1,10 +1,6 @@
 import { useRef } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
+import { gsap, useGSAP } from '../../lib/gsap'
 import { useThemeContext } from '../../context/ThemeContext'
-
-gsap.registerPlugin(useGSAP, MotionPathPlugin)
 
 export function Bus() {
   const containerRef = useRef<SVGSVGElement>(null)

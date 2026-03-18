@@ -1,9 +1,6 @@
 import { useRef } from 'react'
-import { gsap } from 'gsap'
-import { useGSAP } from '@gsap/react'
+import { gsap, useGSAP } from '../../lib/gsap'
 import styles from './AnimatedLoadingAirplane.module.css'
-
-gsap.registerPlugin(useGSAP)
 
 export function AnimatedLoadingAirplane() {
   const containerRef = useRef<HTMLDivElement>(null)

@@ -1,27 +1,10 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useThemeContext } from '../../context/ThemeContext'
 import styles from './ThemeToggle.module.css'
 
 function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
-
-  useEffect(() => {
-    // Check for saved preference or system preference
-    const savedTheme = localStorage.getItem('theme')
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      setIsDark(true)
-      document.documentElement.setAttribute('data-theme', 'dark')
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const newTheme = !isDark
-    setIsDark(newTheme)
-    document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light')
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light')
-  }
+  const { mode, toggleTheme } = useThemeContext()
+  const isDark = mode === 'dark'
 
   return (
     <button
