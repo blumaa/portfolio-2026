@@ -52,7 +52,7 @@ const curtainVariants = {
   },
 }
 
-function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectCard({ project, index: _index }: ProjectCardProps) {
   const {
     name, tagline, description, techStack,
     previewComponent, screenshots, theme,
