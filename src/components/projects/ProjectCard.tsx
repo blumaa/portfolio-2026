@@ -1,4 +1,4 @@
-import { lazy, Suspense, type ComponentType, type LazyExoticComponent } from 'react'
+import { lazy, Suspense, useState, type ComponentType, type LazyExoticComponent } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '../ui/Badge'
 import { Button } from '../ui/Button'
@@ -52,6 +52,24 @@ const curtainVariants = {
   },
 }
 
+function CarouselImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <div className={styles.imageWrapper}>
+      {!loaded && <div className={styles.skeleton} />}
+      <img
+        src={src}
+        alt={alt}
+        className={styles.previewImage}
+        loading="lazy"
+        style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  )
+}
+
 function ProjectCard({ project, index: _index }: ProjectCardProps) {
   const {
     name, tagline, description, techStack,
@@ -67,12 +85,7 @@ function ProjectCard({ project, index: _index }: ProjectCardProps) {
         <Carousel
           items={screenshots}
           renderItem={(item) => (
-            <img
-              src={item.src}
-              alt={`${name} - ${item.name}`}
-              className={styles.previewImage}
-              loading="lazy"
-            />
+            <CarouselImage src={item.src} alt={`${name} - ${item.name}`} />
           )}
         />
       )

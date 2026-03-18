@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { ProjectCard } from './ProjectCard'
 import type { Project } from '../../data/projects'
@@ -74,6 +74,29 @@ describe('ProjectCard', () => {
 
     const card = container.querySelector('article')
     expect(card?.className).toContain('featured')
+  })
+
+  it('shows skeleton and hides image before load, then fades in after load', () => {
+    const project: Project = {
+      ...baseProject,
+      screenshots: [
+        { src: '/test-1.png', name: 'Screenshot 1' },
+      ],
+    }
+
+    const { container } = render(<ProjectCard project={project} index={0} />)
+
+    const skeleton = container.querySelector('[class*="skeleton"]')
+    expect(skeleton).toBeInTheDocument()
+
+    const img = container.querySelector('img[alt="Test Project - Screenshot 1"]') as HTMLImageElement
+    expect(img).toBeInTheDocument()
+    expect(img.style.opacity).toBe('0')
+
+    fireEvent.load(img)
+
+    expect(img.style.opacity).toBe('1')
+    expect(container.querySelector('[class*="skeleton"]')).not.toBeInTheDocument()
   })
 
   it('applies .crtOverlay class when project has theme "crt"', () => {
