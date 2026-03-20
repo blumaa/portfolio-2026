@@ -52,26 +52,28 @@ function Carousel<T extends CarouselItem>({ items, renderItem, className }: Caro
         </AnimatePresence>
       </div>
 
-      <div className={styles.controls}>
-        <button className={styles.navButton} onClick={handlePrev} aria-label="Previous">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
+      {items.length > 1 && (
+        <div className={styles.controls}>
+          <button className={styles.navButton} onClick={handlePrev} aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
 
-        <div className={styles.info}>
-          <span className={styles.name}>{items[currentIndex].name}</span>
-          <span className={styles.counter}>
-            {currentIndex + 1} / {items.length}
-          </span>
+          <div className={styles.info}>
+            <span className={styles.name}>{items[currentIndex].name}</span>
+            <span className={styles.counter}>
+              {currentIndex + 1} / {items.length}
+            </span>
+          </div>
+
+          <button className={styles.navButton} onClick={handleNext} aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
-
-        <button className={styles.navButton} onClick={handleNext} aria-label="Next">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
+      )}
     </div>
   )
 }

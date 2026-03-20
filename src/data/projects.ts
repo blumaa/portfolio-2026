@@ -96,9 +96,7 @@ export const projects: Project[] = [
       'An arcade game built on a custom SVG rendering engine with GSAP-powered character animations, game state machine via useReducer, and a real-time leaderboard on Supabase. Deployed as a PWA and native iOS app via Capacitor.',
     techStack: ['React', 'TypeScript', 'GSAP', 'SVG', 'Supabase', 'Capacitor', 'PWA', 'Vite'],
     screenshots: [
-      { src: '/bird-poo-start-screen.png', name: 'Start Screen' },
-      { src: '/bird-poo-gameplay.png', name: 'Gameplay' },
-      { src: '/bird-poo-gameover.png', name: 'Game Over' },
+      { src: '/bird-poo-preview.png', name: 'Gameplay' },
     ],
     theme: 'crt',
     appStoreUrl: 'https://apps.apple.com/app/id6760347219',
