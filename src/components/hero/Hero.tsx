@@ -33,7 +33,7 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Frontend Developer | Berlin, Germany
+            Frontend Developer
           </motion.p>
         </motion.div>
 
